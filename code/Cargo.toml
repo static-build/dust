@@ -1,0 +1,42 @@
+[package]
+name = "du-dust"
+description = "A more intuitive version of du"
+version = "0.6.0"
+authors = ["bootandy <bootandy@gmail.com>", "nebkor <code@ardent.nebcorp.com>"]
+edition = "2018"
+
+documentation = "https://github.com/bootandy/dust"
+homepage = "https://github.com/bootandy/dust"
+repository = "https://github.com/bootandy/dust"
+
+keywords = ["du", "command-line", "disk", "disk-usage"]
+categories = ["command-line-utilities"]
+license = "Apache-2.0"
+
+[badges]
+travis-ci = { repository = "https://travis-ci.org/bootandy/dust" }
+
+[[bin]]
+name = "dust"
+path = "src/main.rs"
+
+[dependencies]
+ansi_term = "0.12"
+clap = { version = "=2.33", features = ["wrap_help"] }
+lscolors = "0.7"
+terminal_size = "0.1"
+unicode-width = "0.1"
+rayon="1"
+thousands = "0.2"
+stfu8 = "0.2"
+
+[target.'cfg(windows)'.dependencies]
+winapi-util = "0.1"
+
+[dev-dependencies]
+assert_cmd = "1"
+tempfile = "=3"
+
+[[test]]
+name = "integration"
+path = "tests/tests.rs"
