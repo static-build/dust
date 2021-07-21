@@ -40,3 +40,6 @@ tempfile = "=3"
 [[test]]
 name = "integration"
 path = "tests/tests.rs"
+
+[profile.release]
+lto = true
