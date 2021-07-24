@@ -12,3 +12,12 @@ A
 
 PATH="$(pwd)/osxcross/target/bin:$PATH" \
 cargo build --target x86_64-apple-darwin ${1:+"$@"}
+
+
+cat >>.cargo/config <<A
+[target.aarch64-apple-darwin]
+linker = "x86_64-apple-darwin14-clang"
+ar = "x86_64-apple-darwin14-ar"
+A
+
+PATH="/osxcross/target/bin:$PATH"
